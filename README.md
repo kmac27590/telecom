@@ -15,5 +15,4 @@ Then open http://localhost:8000.
 
 ## Publish
 
-The workflow in `.github/workflows/pages.yml` deploys the site to GitHub Pages on every push to `main`.
-Enable it once under **Settings → Pages → Source: GitHub Actions**.
+The workflow in `.github/workflows/jekyll-gh-pages.yml` deploys the site to GitHub Pages on every push to `main`.
