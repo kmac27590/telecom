@@ -16,6 +16,7 @@
       <a class="brand" href="#top">KM</a>
       <nav>
         <a href="#capabilities">Capabilities</a>
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -91,6 +92,32 @@
           <p>Design specs, acceptance test plans and MoPs; vendor management; coordinating engineering, IT, planning and operations teams.</p>
         </article>
       </div>
+    </section>
+
+    <section id="projects" class="wrap section">
+      <h2>Projects</h2>
+      <article class="project">
+        <div class="project-head">
+          <h3>5G Core Lab</h3>
+          <a class="project-link" href="https://github.com/kmac27590/5g-core-lab" target="_blank" rel="noopener">View code →</a>
+        </div>
+        <p class="project-lede">
+          A reproducible 5G Standalone core on Kubernetes, tested end to end in CI and operated with
+          AI-assisted workflows. One command brings up the core and simulated radio network; another walks
+          the 3GPP procedures in order and proves a UE can reach the internet.
+        </p>
+        <pre class="flow" aria-label="Network diagram: UE and gNB connect to the AMF over N2 and to the UPF over N3; SMF controls the UPF over N4; UPF connects to the internet over N6">UE ── gNB ──N2 (NGAP/SCTP)── AMF ──SBI── NRF · AUSF · UDM · PCF · NSSF
+         └──N3 (GTP-U)── UPF ──N4 (PFCP)── SMF
+                          └──N6── internet</pre>
+        <ul class="project-points">
+          <li><strong>Core and RAN:</strong> Open5GS (AMF, SMF, UPF, NRF, AUSF, UDM, UDR, PCF, NSSF, BSF) and UERANSIM gNB with simulated UEs, deployed from version-pinned Helm charts on k3s.</li>
+          <li><strong>End-to-end test:</strong> checks PFCP association, NG Setup, Registration, PDU Session Establishment and user-plane ping, in procedure order, on every push via GitHub Actions.</li>
+          <li><strong>Operations tooling:</strong> scripted signalling capture (N2, N3, N4) rendered as a message ladder, chaos tests that kill an NF and time its recovery, and a triage bundle that points at the first failing procedure.</li>
+          <li><strong>AI-assisted ops:</strong> Claude Code commands that attach a UE, trace a call flow, run a resilience test or diagnose a failure, and explain the result in 3GPP terms.</li>
+        </ul>
+        <p class="tags">Open5GS · UERANSIM · Kubernetes (k3s) · Helm · GitHub Actions · Bash · tshark · 3GPP 5G SA</p>
+        <p class="muted small">Next: Multus for separate N2/N3/N6 networks, Prometheus and Grafana dashboards, Argo CD, network slicing and 100-UE scale tests.</p>
+      </article>
     </section>
 
     <section id="experience" class="wrap section">
